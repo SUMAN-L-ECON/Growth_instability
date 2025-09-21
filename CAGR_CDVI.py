@@ -703,39 +703,7 @@ def main():
             if 'results_df' in st.session_state and not st.session_state['results_df'].empty:
                 summary = generate_executive_summary(st.session_state['results_df'])
                 st.markdown(summary)
-                
-                # Key recommendations
-                st.markdown("""
-                ### 💡 Strategic Recommendations
-                
-                Based on the analysis, consider the following policy interventions:
-                """)
-                
-                results_df = st.session_state['results_df']
-                valid_results = results_df[results_df['CAGR (%)'] != 'Error']
-                
-                if not valid_results.empty:
-                    # Generate recommendations based on CAGR and CDVI
-                    for _, row in valid_results.iterrows():
-                        try:
-                            cagr_val = float(row['CAGR (%)'])
-                            cdvi_val = float(row['CDVI'])
-                            
-                            if cagr_val < 0 and cdvi_val > 20:
-                                recommendation = "🔴 **High Priority**: Requires immediate intervention - declining trend with high volatility"
-                            elif cagr_val < 0:
-                                recommendation = "🟠 **Moderate Priority**: Address declining trend through targeted policies"
-                            elif cdvi_val > 30:
-                                recommendation = "🟡 **Volatility Concern**: Implement stabilization measures"
-                            else:
-                                recommendation = "🟢 **Maintain**: Continue current policies with regular monitoring"
-                            
-                            st.markdown(f"- **{row['Indicator']}**: {recommendation}")
-                        except:
-                            continue
-            else:
-                st.info("👆 Run the analysis first to see the executive summary")
-        
+                      
         with tab4:
             st.subheader("📊 Interactive Visualizations")
             
