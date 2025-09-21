@@ -236,14 +236,14 @@ def enhanced_compute_statistics(data, column):
     
     return mean_val, std_val, cv_val, skewness, kurtosis, median_val
 
-def compute_enhanced_cdvi(cv_percent, r_squared):
+def compute_enhanced_cdvi(cv_percent, adj_r_squared):
     """Enhanced CDVI computation with bounds checking.
        CV is expected in percent (e.g., 12.5 for 12.5%).
        Uses R-squared (0..1) from the trend regression.
     """
-    if pd.isna(cv_percent) or pd.isna(r_squared):
+    if pd.isna(cv_percent) or pd.isna(adj_r_squared):
         return np.nan
-    r2_clamped = min(max(r_squared, 0.0), 1.0)
+    r2_clamped = min(max(adj_r_squared, 0.0), 1.0)
     return cv_percent * sqrt(max(0.0, 1.0 - r2_clamped))
 
 def generate_economic_interpretation(cagr, cdvi, pval, cv, indicator_name):
@@ -662,7 +662,7 @@ def main():
                     "🚀 Run Analysis",
                     type="primary",
                     use_container_width=True,
-                    help="Execute CAGR and CDVI analysis"
+                    help="Execute CAGR and  analysis"
                 )
             
             # Determine selected columns
@@ -696,7 +696,7 @@ def main():
                             'CV (%)': 'N/A',
                             'Adj R²': 'N/A',
                             'R²': 'N/A',
-                            'CDVI': 'N/A',
+                            '': 'N/A',
                             'DW Statistic': 'N/A',
                             'Interpretation': f'Less than {min_observations} observations'
                         })
@@ -717,7 +717,7 @@ def main():
                         else:
                             display_cagr = np.nan
                         
-                        cdvi = compute_enhanced_cdvi(cv_val, r_squared)
+                        cdvi = compute_enhanced_cdvi(cv_val, adj_r_squared)
                         interpretation = generate_economic_interpretation(display_cagr, cdvi, p_value if not pd.isna(p_value) else np.nan, cv_val, column)
                         
                         results.append({
