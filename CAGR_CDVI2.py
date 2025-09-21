@@ -454,7 +454,7 @@ def generate_executive_summary(results_df):
     except Exception:
         summary += "\n- *Detailed performance analysis requires valid numeric data*"
     
-    return st.markdown(summary)
+    return summary
 
 # ================= Main Application =================
 
