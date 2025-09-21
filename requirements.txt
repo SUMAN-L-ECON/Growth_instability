@@ -1,0 +1,51 @@
+# Professional CAGR & CDVI Analytics Dashboard
+# Requirements file for production deployment
+# Built by Suman L - Economics Analytics Expert
+
+# Core Streamlit Framework
+streamlit>=1.28.0
+
+# Data Manipulation and Analysis
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Statistical Analysis and Econometrics
+statsmodels>=0.14.0
+scipy>=1.10.0
+
+# Interactive Visualizations
+plotly>=5.15.0
+
+# Excel File Handling
+openpyxl>=3.1.0
+xlsxwriter>=3.1.0
+
+# PDF Generation and File Handling
+matplotlib>=3.7.0
+reportlab>=4.0.0
+
+# Additional Utilities
+python-dateutil>=2.8.0
+pytz>=2023.3
+
+# Optional: Enhanced Performance (uncomment if needed)
+# numba>=0.57.0
+# bottleneck>=1.3.0
+
+# Optional: Database Support (uncomment if needed)
+# sqlalchemy>=2.0.0
+# psycopg2-binary>=2.9.0
+
+# Optional: Advanced Statistical Features (uncomment if needed)
+# scikit-learn>=1.3.0
+# seaborn>=0.12.0
+
+# Development and Testing (uncomment for development)
+# pytest>=7.4.0
+# pytest-streamlit>=1.0.0
+# black>=23.0.0
+# flake8>=6.0.0
+
+# Deployment specific (uncomment for specific deployment platforms)
+# gunicorn>=21.0.0  # For production deployment
+# whitenoise>=6.5.0  # For serving static files
