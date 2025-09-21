@@ -427,7 +427,7 @@ def generate_executive_summary(results_df):
     
     summary = f"""
     ## 📋 Executive Summary
-    
+    st.markdown("""
     **Analysis Overview:**
     - Total Indicators Analyzed: **{total_indicators}**
     - Indicators with Positive Growth: **{positive_growth}** ({(positive_growth/total_indicators*100):.1f}%)
