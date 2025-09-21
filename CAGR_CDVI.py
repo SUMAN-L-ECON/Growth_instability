@@ -994,14 +994,7 @@ where CV is the coefficient of variation and R² is the coefficient of determina
         </div>
         """, unsafe_allow_html=True)
         
-        # Sample data preview
-        st.subheader("📊 Sample Data Preview")
-        sample_data = load_sample_data()
-        st.dataframe(sample_data.head(), use_container_width=True)
         
-        st.markdown("""
-        💡 **Tip:** Use the sidebar to load sample data or upload your own file to get started!
-        """)
     
     # Footer
     st.markdown("---")
