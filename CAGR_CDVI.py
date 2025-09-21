@@ -96,32 +96,7 @@ st.markdown("""
 
 # ================= Enhanced Function Definitions =================
 
-@st.cache_data
-def load_sample_data():
-    """Load sample economic data for demonstration"""
-    years = list(range(2000, 2024))
-    np.random.seed(42)
-    
-    # Generate realistic economic indicators
-    gdp_growth = np.random.normal(3.5, 2.5, len(years))
-    gdp = [100]
-    for growth in gdp_growth:
-        gdp.append(gdp[-1] * (1 + growth/100))
-    gdp = gdp[1:]
-    
-    inflation = np.random.normal(4.2, 3.1, len(years))
-    unemployment = np.random.normal(6.5, 1.8, len(years))
-    
-    sample_data = pd.DataFrame({
-        'Year': years,
-        'GDP_Billions': gdp,
-        'Inflation_Rate': inflation,
-        'Unemployment_Rate': unemployment,
-        'Export_Growth': np.random.normal(5.2, 4.3, len(years)),
-        'Import_Growth': np.random.normal(4.8, 3.9, len(years))
-    })
-    
-    return sample_data
+
 
 def enhanced_compute_cagr(data, column):
     """Enhanced CAGR computation with additional statistics"""
