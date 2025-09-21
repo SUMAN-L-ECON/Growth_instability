@@ -352,7 +352,7 @@ def main():
         st.subheader("📁 Data Input")
         data_source = st.radio(
             "Choose data source:",
-            ["Upload File", "Use Sample Data"],
+            ["Upload File"],
             help="Upload your own data or use sample economic indicators"
         )
         
@@ -402,7 +402,7 @@ def main():
             )
     
     # Main content
-    if data_source == "Use Sample Data" or uploaded_file is not None:
+    if data_source == uploaded_file is not None:
         
         # Load and display data
         if data_source == "Use Sample Data":
